@@ -144,6 +144,7 @@
     <Compile Include="Patches\Dynamic\PrecursorTeleporter_OnActivateTeleporter_Patch.cs" />
     <Compile Include="Patches\Dynamic\PrecursorTeleporterActivationTerminal_OnProxyHandClick_Patch.cs" />
     <Compile Include="Patches\Dynamic\PrefabPlaceholdersGroup_Spawn_Patch.cs" />
+    <Compile Include="Patches\Dynamic\BuilderTool_Construct_Patch.cs" />
     <Compile Include="Patches\Dynamic\PropulsionCannon_GrabObject_Patch.cs" />
     <Compile Include="Patches\Dynamic\PropulsionCannon_ReleaseGrabbedObject_Patch.cs" />
     <Compile Include="Patches\Dynamic\QuickSlots_Bind_Patch.cs" />

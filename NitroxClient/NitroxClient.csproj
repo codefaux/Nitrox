@@ -262,6 +262,7 @@
     <Compile Include="GameLogic\Simulation\LockRequest.cs" />
     <Compile Include="GameLogic\Simulation\LockRequestBase.cs" />
     <Compile Include="GameLogic\Simulation\LockRequestContext.cs" />
+    <Compile Include="GameLogic\Simulation\BuilderToolConstructContext.cs" />
     <Compile Include="GameLogic\Simulation\PropulsionGrab.cs" />
     <Compile Include="GameLogic\SimulationOwnership.cs" />
     <Compile Include="GameLogic\Spawning\CellRootSpawner.cs" />
