@@ -20,7 +20,7 @@ namespace NitroxPatcher.Patches.Dynamic
         private static SimulationOwnership simulationOwnership = NitroxServiceLocator.LocateService<SimulationOwnership>();
 
         private static bool lastState = true;
-        private static BuilderTool lastTool;
+        //private static BuilderTool lastTool;
         private static bool skipPrefixPatch = false;
 
         public static bool Prefix(BuilderTool __instance, Constructable target, bool state)
@@ -39,10 +39,10 @@ namespace NitroxPatcher.Patches.Dynamic
             }
 
             lastState = state;
-            lastTool = __instance;
+            //lastTool = __instance;
 
-            BuilderToolConstructContext context = new BuilderToolConstructContext(target);
-            LockRequest<BuilderToolConstructContext> lockRequest = new LockRequest<BuilderToolConstructContext>(id, SimulationLockType.EXCLUSIVE, ReceivedSimulationLockResponse, context);
+            BuilderToolConstructContext context = new(__instance, target);
+            LockRequest<BuilderToolConstructContext> lockRequest = new(id, SimulationLockType.EXCLUSIVE, ReceivedSimulationLockResponse, context);
 
             simulationOwnership.RequestSimulationLock(lockRequest);
 
@@ -54,7 +54,7 @@ namespace NitroxPatcher.Patches.Dynamic
             if (lockAquired)
             {
                 skipPrefixPatch = true;
-                TARGET_METHOD.Invoke(lastTool, new object[] { context.constructable, lastState });
+                TARGET_METHOD.Invoke(context.tool, new object[] { context.constructable, lastState });
                 skipPrefixPatch = false;
             }
             else
